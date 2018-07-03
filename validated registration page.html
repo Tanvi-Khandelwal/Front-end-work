@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+<script type="text/javascript">
+$(function() {
+var date = new Date();
+var currentMonth = date.getMonth();
+var currentDate = date.getDate();
+var currentYear = date.getFullYear();
+$('#datepicker').datepicker({
+maxDate: new Date(currentYear, currentMonth, currentDate)
+});
+});
+
+</script>
+</head>
+<style>
+#start {
+    background-color: white;
+    width: 1200px;
+    border: 2px solid black;
+    padding: 25px;
+    margin: 25px;
+	
+}
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box}
+
+/* Full-width input fields */
+input[type=text], input[type=password], input[type=email] {
+    
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+	
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+button:hover {
+    opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 20%;
+}
+
+/* Add padding to container elements */
+.container {
+    padding: 16px;
+}
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+    .cancelbtn, .signupbtn {
+       width: 100%;
+    }
+}
+</style>
+
+<body style="color:black;font-weight:bold;background-color:#e6f0ff">
+<script type="text/javascript">
+
+function start()
+{ if(true)
+   { document.write('Your Information has been Recorded Successfully'); }
+}
+function IsMobileNumber(MobId) {
+var mob = /^\d{10}$/;
+var ind1 = document.getElementById("m1");
+var s1= document.getElementById("contact number");
+if(MobId == "") {
+ind1.innerHTML = "Field can't be blank"; 
+return false;
+}
+else if (mob.test(MobId) == false) {
+    ind1.innerHTML= "Please enter valid mobile number.";
+    
+    return false;
+}
+else {
+ind1.innerHTML="";
+return true;
+}}
+
+function validateEmail(sEmail) {
+  var reEmail = /^(?:[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+\.)*[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+@(?:(?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!\.)){0,61}[a-zA-Z0-9]?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!$)){0,61}[a-zA-Z0-9]?)|(?:\[(?:(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\.){3}(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\]))$/;
+  if(sEmail == ""){
+  document.getElementById("e1").innerHTML="Field can't be blank";
+  var s= document.getElementById("email");
+  return false;
+  }
+  else if(!sEmail.match(reEmail)) {
+     document.getElementById("e1").innerHTML="Invalid email address";
+	 var s= document.getElementById("email");
+	return false;
+  }
+  else {
+    document.getElementById("e1").innerHTML="";
+  return true;
+    } }
+	
+function checkpass(pass) {
+  var s3= document.getElementById("p1");
+  var s4= document.getElementById("pwd1");
+  
+  if(pass == ""){
+	s3.innerHTML="Field can't be blank";
+     return false;
+	}
+	
+   else if (pwd1.value.length > 0){
+    if(pwd1.value.length < 6) {
+        s3.innerHTML="Password must contain at least six characters!";
+        
+       return false;
+      }
+	var re1 = /[0-9]/;
+    if(!re1.test(pass)) {
+        s3.innerHTML= "password must contain at least one number (0-9)!";
+        
+        return false;
+      }
+	   re = /[a-z]/;
+     if(!re.test(pass)) {
+        s3.innerHTML="password must contain at least one lowercase letter (a-z)!";
+        
+        return false;
+      }
+	 re = /[A-Z]/;
+     if(!re.test(pass)) {
+       s3.innerHTML= "password must contain at least one uppercase letter (A-Z)!";
+       
+        return false;
+      }
+	  else {
+    s3.innerHTML= "";
+    return true;
+	}
+	  }
+}
+function check2(confirm) {
+var ps1= document.getElementById("pwd1");
+var ps2= document.getElementById("pwd2");
+if (pwd1.value != pwd2.value)
+{
+ document.getElementById("c1").innerHTML="Password did not match";
+ return false;
+}
+else { 
+document.getElementById("c1").innerHTML="";
+return true;
+}}
+
+function phnum(number) {
+var h1= document.getElementById("ph1");
+var h2= document.getElementById("phone no");
+var ren = /[0-9]/;
+if (!ren.test(number)) {
+  h1.innerHTML= "invalid phone number";
+  
+  return false;
+  }
+  
+  else { h1.innerHTML = ""; 
+  return true;
+  }}
+
+</script>
+<div id="start">
+<h1 align="center"><u>Registration Page</u></h1>
+
+<div id="id01" class="modal">
+<form onsubmit="document.write('Your Information has been Recorded Successfully');" id="formId">
+  <fieldset class="container">
+    <legend>Personal Information:</legend>
+	<table>
+	<col width="130">
+     <col width="80">
+	 <col width="550">
+	<tr>
+         <td>First Name:&nbsp </td>
+         <td> <input type="text" name="firstname" required> </td>
+	</tr>	
+    <tr> </tr>	
+    <tr>
+         <td>Last Name:&nbsp </td>
+         <td><input type="text" name="lastname" required></td>
+    </tr>
+	<tr> </tr>
+	<tr>
+         <td>D.O.B:&nbsp </td>
+		 <td><input type="text" id="datepicker" required></td>
+    </tr>
+	<tr> </tr>
+	<tr> </tr>
+	<tr>
+         <td>Gender: </td>
+		 <td><input type="radio" name="gender" value="male"> Male<br>
+           <input type="radio" name="gender" value="female"> Female<br>
+          <input type="radio" name="gender" value="other"> Other </td>
+	</tr>
+	<tr> </tr>
+   </table>	
+  </fieldset>
+  <br> 
+ <fieldset>
+    <legend>Contact Information:</legend>
+	<table>
+	<col width="130">
+     <col width="80">
+	 <col width="550">
+	<tr>
+         <td> Email ID<sup style="color:red;">*</sup>: </td>
+         <td><input type="text" id="email" onblur="validateEmail(this.value);" required /> &nbsp </td>
+		 <td style="color:red;" id="e1"> </td>
+    </tr>
+	<tr> </tr>
+	<tr>
+	     <td>Username:</td>
+         <td><input type="text" id="username" required></td>
+	</tr> 
+	<tr> </tr>
+	<tr>
+	     <td>Password<sup style="color:red;">*</sup>:</td>
+		 <td><input type="password" id="pwd1" onblur="checkpass(this.value);" required /> &nbsp </td>
+	     <td id="p1" style="color:red;"></td>
+		 
+	</tr> 
+	<tr> </tr>
+	
+	<tr>
+	     <td>Confirm Password:</td>
+ 		 <td><input type="password" id="pwd2" onblur="check2(this.value);" required></td>
+		  <td style="color:red;" id="c1"></td>
+	</tr> 
+	<tr> </tr>
+	<tr>
+         <td>Mobile Number<sup style="color:red;">*</sup>: &nbsp </td>
+		 <td><input type="text" id="contact number" onblur="IsMobileNumber(this.value);" required> &nbsp</td>
+		  <td style="color:red;" id="m1"></td>
+    </tr> 
+	<tr> </tr>
+	<tr>
+         <td>Phone number: &nbsp </td>
+		 <td><input type="text" id="phone no" onblur="phnum(this.value);" required> </td>
+		 <td style="color:red;" id="ph1"></td>
+    </tr>
+	<tr> </tr>
+	</table>
+ </fieldset> <br>
+ 
+        <p>By creating an account you agree to our <a href="https://www.business-standard.com/terms-conditions" style="color:dodgerblue">Terms & Privacy</a>.</p>
+		
+		 <div class="clearfix">
+      <button type="submit" class="signupbtn">Register</button>
+    </div>
+
+</form>
+</div>
+</div>
+</body>
+</html>
